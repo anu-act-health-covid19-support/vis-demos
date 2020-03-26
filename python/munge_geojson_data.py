@@ -36,15 +36,20 @@ def epochs_to_iso8601(data):
         ).isoformat()
 
 
+def get_timestamp_range(data):
+
+    epochs = [feature["properties"]["time"] for feature in data["features"]]
+    return (min(epochs), max(epochs))
+
+
 def add_normalised_colour_values(data):
     """add another prop for use with colouring
 
     this assumes the timestamps are still in unix epoch (i.e. ints)
 
     """
-    epochs = [feature["properties"]["time"] for feature in data["features"]]
-    minTs = min(epochs)
-    maxTs = max(epochs)
+
+    (minTs, maxTs) = get_timestamp_range(data)
 
     for feature in data["features"]:
         props = feature["properties"]
@@ -55,9 +60,10 @@ def main():
 
     data = read_data(raw_data_file)
 
-    # epochs_to_iso8601(data)
+    print("range:", get_timestamp_range(data))
 
-    add_normalised_colour_values(data)
+    # add_normalised_colour_values(data)
+    # epochs_to_iso8601(data)
 
     write_data(data, destination_file)
 
