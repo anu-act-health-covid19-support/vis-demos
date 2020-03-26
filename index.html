@@ -22,9 +22,17 @@
 	<div id="console">
 	  <h1>Location over time in Canberra</h1>
 	  <p>From data supplied by the COVID-19 ANU & ACT Health task force</p>
+
 	  <!-- legend -->
 	  <h1>Legend: time of day</h1>
 	  <div id='legend'></div>
+
+	  <!-- slider -->
+	  <h1>Time slider</h1>
+	  <input id="slider" type="range" min="0" max="100" step="1" value="0" />
+	  <p><span id="time-window-centrepoint"></span></p>
+	  <p style="color:#999;">(time window = one hour)</p>
+
 	</div>
 
 
