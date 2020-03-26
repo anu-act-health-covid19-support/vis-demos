@@ -4,7 +4,8 @@ import time
 import datetime
 
 source_file = "../geojson-over-time/rawdata.geojson"
-destination_file =  "../geojson-over-time/processed-data.geojson"
+destination_file = "../geojson-over-time/processed-data.geojson"
+
 
 def main():
 
@@ -13,12 +14,15 @@ def main():
 
     for feature in data["features"]:
         props = feature["properties"]
-        props["time"] = datetime.datetime.fromtimestamp(props["time"]/1000).isoformat() # timestamp is in millis
+        props["time"] = datetime.datetime.fromtimestamp(
+            props["time"] / 1000
+        ).isoformat()  # timestamp is in millis
 
-    with open(destination_file, 'w') as out_f:
+    with open(destination_file, "w") as out_f:
         json.dump(data, out_f)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
 
     print("all done.")
