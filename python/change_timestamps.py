@@ -24,4 +24,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-    print("all done.")
+    print(f"wrote geojson data (with ISO8601 timestamps) to {destination_file}")
