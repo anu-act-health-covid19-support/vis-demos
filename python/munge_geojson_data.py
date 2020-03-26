@@ -2,7 +2,7 @@
 import json
 import datetime
 
-source_file = "../data/rawdata.geojson"
+source_file = "../data/raw-data.geojson"
 destination_file = "../data/processed-data.geojson"
 
 
