@@ -19,16 +19,11 @@ map.on('load', function() {
 	  'circle-radius': 7,
 	  'circle-stroke-color': "white",
 	  'circle-stroke-width': 1,
-	  'circle-color': [
-		'interpolate',
-		['linear'],
-		['/', ['number', ['get', 'time']], 86400000],
-		18342, 'rgba(246, 76, 114, 0.1)',
-		18343, 'rgba(246, 76, 114, 0.2)',
-		18344, 'rgba(246, 76, 114, 0.3)',
-		18345, 'rgba(246, 76, 114, 0.5)',
-		18346, 'rgba(246, 76, 114, 0.7)',
-		18347, 'rgba(246, 76, 114, 0.9)',
+	  'circle-color': ['interpolate',
+					   ['linear'],
+					   ['get', 'time'],
+					   1584685015006, 'rgb(255, 76, 54)',
+					   1585094785740, 'rgb(76, 114, 246)'
 	  ],
 	  'circle-opacity': 0.8
 	}
