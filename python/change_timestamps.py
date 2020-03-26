@@ -3,8 +3,8 @@ import json
 import time
 import datetime
 
-source_file = "../geojson-over-time/rawdata.geojson"
-destination_file = "../geojson-over-time/processed-data.geojson"
+source_file = "../rawdata.geojson"
+destination_file = "../processed-data.geojson"
 
 
 def main():
