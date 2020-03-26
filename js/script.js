@@ -40,8 +40,8 @@ const filterDotsInTimeWindow = (ts) => {
   const windowSize = 1*60*60*1000; // 3 hours
 
   const windowFilters = ['all',
-				 ['>', 'time', ts-windowSize/2],
-				 ['<', 'time', ts+windowSize/2]];
+						 ['>', 'time', ts-windowSize/2],
+						 ['<', 'time', ts+windowSize/2]];
   map.setFilter('track-and-trace', windowFilters);
   // Set the label to the month
   const dt = new Date(ts);
@@ -80,5 +80,3 @@ map.on('load', function() {
 	  filterDotsInTimeWindow(ts);
 	});
 });
-
-
