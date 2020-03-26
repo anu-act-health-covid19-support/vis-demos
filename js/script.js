@@ -7,6 +7,8 @@ var map = new mapboxgl.Map({
   zoom: 15
 });
 
+// hardcoded values based on Kathy's test data for now - will make this
+// data-driven later
 const timeColorMapping = [[1584685015006, "#eb4d4b"], [1585094785740, "#4834d4"]];
 
 // cmon mapbox, surely there's a better way to do this...
