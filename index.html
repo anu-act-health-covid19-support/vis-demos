@@ -27,7 +27,7 @@
       <div class='label'>5+</div>
     </div>
   </div>
-  
+
   <h1>Location over time in Canberra </h1>
   <p>From data supplied by the COVID-19 ANU / ACT Health task force </p>
 </div>
@@ -48,7 +48,7 @@ var map = new mapboxgl.Map({
 
 map.on('load', function() {
   map.addLayer({
-    id: 'collisions',
+    id: 'track-and-trace',
     type: 'circle',
     source: {
       type: 'geojson',
