@@ -1,0 +1,85 @@
+<html>
+<meta charset='utf-8' />
+<title>GeoJSON over time demo for visualisation</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+<link href='demo.css' rel='stylesheet' />
+
+<head>
+</head>
+
+<body>
+
+<div id='map'></div>
+<div id='console'>
+
+  <div class='session'>
+    <h2>Time series</h2>
+    <div class='row colors'>
+    </div>
+    <div class='row labels'>
+      <div class='label'>0</div>
+      <div class='label'>1</div>
+      <div class='label'>2</div>
+      <div class='label'>3</div>
+      <div class='label'>4</div>
+      <div class='label'>5+</div>
+    </div>
+  </div>
+  
+  <h1>Location over time in Canberra </h1>
+  <p>From data supplied by the COVID-19 ANU / ACT Health task force </p>
+</div>
+
+
+
+
+<script>
+
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia2F0aHlyZWlkIiwiYSI6ImNrODgyMTN1ZjAwamQzbW1za3Qwa2VhM20ifQ.t2zzot1Qhgqf-EzMAhIFgQ';
+
+var map = new mapboxgl.Map({
+  container: 'map', // container element id
+  style: 'mapbox://styles/mapbox/light-v10',
+  center: [149.119, -35.280], // initial map center in [lon, lat]
+  zoom: 15
+});
+
+map.on('load', function() {
+  map.addLayer({
+    id: 'collisions',
+    type: 'circle',
+    source: {
+      type: 'geojson',
+      data: 'rawdata.geojson' // replace this with the url of your own geojson
+    },
+    paint: {
+      'circle-radius': [
+        'interpolate',
+        ['linear'],
+        ['number', ['get', 'time']],
+        0, 4,
+        5, 24
+      ],
+      'circle-color': [
+        'interpolate',
+        ['linear'],
+        ['number', ['get', 'time']],
+        0, '#2DC4B2',
+        1, '#3BB3C3',
+        2, '#669EC4',
+        3, '#8B88B6',
+        4, '#A2719B',
+        5, '#AA5E79'
+      ],
+      'circle-opacity': 0.8
+    }
+  });
+});
+
+
+</script>
+
+</body>
+</html>
