@@ -37,8 +37,7 @@ const configureSlider = () => {
 
 const filterDotsInTimeWindow = (ts) => {
 
-  console.log(ts);
-  const windowSize = 3*60*60*1000; // 3 hours
+  const windowSize = 1*60*60*1000; // 3 hours
 
   const windowFilters = ['all',
 				 ['>', 'time', ts-windowSize/2],
