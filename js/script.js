@@ -37,12 +37,19 @@ const configureSlider = () => {
 
 const filterDotsInTimeWindow = (ts) => {
 
-  const windowSize = 1*60*60*1000; // 3 hours
+  // if the slider is on the min value, remove all filters (i.e. show all the data points)
+  // TODO doesn't work currently - fix it Ben!
+  if (ts == timeColorMapping[0][0]) {
+	map.setFilter('track-and-trace', null);
+  }
 
-  const windowFilters = ['all',
-						 ['>', 'time', ts-windowSize/2],
-						 ['<', 'time', ts+windowSize/2]];
-  map.setFilter('track-and-trace', windowFilters);
+  const windowSize = 1*60*60*1000; // 2 hours total (ts +/- 1hr)
+
+  map.setFilter('track-and-trace',
+				['all',
+				 ['>', 'time', ts-windowSize/2],
+				 ['<', 'time', ts+windowSize/2]]);
+
   // Set the label to the month
   const dt = new Date(ts);
   document.getElementById('time-window-centrepoint').textContent = dt.toLocaleString();
