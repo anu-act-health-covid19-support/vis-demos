@@ -7,6 +7,8 @@ var map = new mapboxgl.Map({
   zoom: 15
 });
 
+const timeColorMapping = [[1584685015006, "#eb4d4b"], [1585094785740, "#4834d4"]];
+
 map.on('load', function() {
   map.addLayer({
 	id: 'track-and-trace',
@@ -22,8 +24,7 @@ map.on('load', function() {
 	  'circle-color': ['interpolate',
 					   ['linear'],
 					   ['get', 'time'],
-					   1584685015006, 'rgb(255, 76, 54)',
-					   1585094785740, 'rgb(76, 114, 246)'
+					   ...(timeColorMapping.flat()), // don't get too clever, Ben...
 	  ],
 	  'circle-opacity': 0.8
 	}
