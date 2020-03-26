@@ -49,8 +49,9 @@ background-color: white;
   margin-bottom: 5px;
 }
 
-.label {
-  width: 15%;
-  display: inline-block;
-  text-align: center;
+#console label {
+	color: white;
+	padding: 0.5em;
+	display: block;
+	text-align: center;
 }
