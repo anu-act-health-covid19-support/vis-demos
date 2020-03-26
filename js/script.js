@@ -17,7 +17,7 @@ map.on('load', function() {
 	},
 	paint: {
 	  'circle-radius': 7,
-	  'circle-stroke-color': "#ffffff",
+	  'circle-stroke-color': "white",
 	  'circle-stroke-width': 1,
 	  'circle-color': [
 		'interpolate',
