@@ -18,19 +18,24 @@ const timeColorMapping = [
   [1585094785740, "#4834d4"]
 ];
 
-// cmon mapbox, surely there's a better way to do this...
+// c'mon mapbox, surely there's a better way to do this...
 const populateLegend = () => {
-  const legend = document.getElementById("legend");
-
-  let spans = [];
-  let labels = [];
+  const table = document.getElementById("legend");
+  const swatches = document.createElement("tr");
+  const labels = document.createElement("tr");
 
   for (i = 0; i < timeColorMapping.length; i++) {
-    const label = document.createElement("label");
-    label.style.background = timeColorMapping[i][1];
+    const swatch = document.createElement("td");
+    swatch.style.background = timeColorMapping[i][1];
+    swatches.appendChild(swatch);
+
+    const label = document.createElement("td");
     label.innerHTML = formatDate(timeColorMapping[i][0]);
-    legend.appendChild(label);
+    labels.appendChild(label);
   }
+
+  table.appendChild(swatches);
+  table.appendChild(labels);
 };
 
 const configureSlider = () => {

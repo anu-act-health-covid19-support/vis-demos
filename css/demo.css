@@ -13,13 +13,14 @@
 	width: 100%;
 }
 
-#console label {
-	color: white;
-	padding: 0.5em;
-	display: block;
-	text-align: center;
+#legend{
+	width:100%;
 }
 
+#legend tr {
+	height: 1em;
+
+}
 #slider {
 	width: 100%;
 }
