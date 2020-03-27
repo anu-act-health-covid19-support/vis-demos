@@ -41,6 +41,9 @@ const filterDotsInTimeWindow = ts => {
   // if the slider is on the min value, remove all filters (i.e. show all the data points)
   if (ts == timeColorMapping[0][0]) {
     map.setFilter("track-and-trace", null);
+    document.getElementById(
+      "time-window-centrepoint"
+    ).textContent = "all time";
   } else {
     const windowSize = 1 * 60 * 60 * 1000; // 2 hours total (ts +/- 1hr)
 
