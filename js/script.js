@@ -24,9 +24,8 @@ const populateLegend = () => {
 
   for (i = 0; i < timeColorMapping.length; i++) {
     const label = document.createElement("label");
-    const dt = new Date(timeColorMapping[i][0]);
     label.style.background = timeColorMapping[i][1];
-    label.innerHTML = dt.toLocaleString();
+    label.innerHTML = formatDate(timeColorMapping[i][0]);
     legend.appendChild(label);
   }
 };
@@ -52,12 +51,16 @@ const filterDotsInTimeWindow = ts => {
     ]);
 
     // Set the label to the month
-    const dt = new Date(ts);
     document.getElementById(
       "time-window-centrepoint"
-    ).textContent = dt.toLocaleString();
+    ).textContent = formatDate(ts);
   }
 };
+
+const formatDate = ts => {
+  const timeMoment = moment(new Date(ts));
+  return timeMoment.format("ddd MMM Do YYYY, h:mm a");
+}
 
 map.on("load", function() {
   map.addLayer({
