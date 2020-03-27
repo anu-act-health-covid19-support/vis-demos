@@ -41,18 +41,19 @@ const filterDotsInTimeWindow = (ts) => {
   // TODO doesn't work currently - fix it Ben!
   if (ts == timeColorMapping[0][0]) {
 	map.setFilter('track-and-trace', null);
+  }else{
+	const windowSize = 1*60*60*1000; // 2 hours total (ts +/- 1hr)
+
+	map.setFilter('track-and-trace',
+				  ['all',
+				   ['>', 'time', ts-windowSize/2],
+				   ['<', 'time', ts+windowSize/2]]);
+
+	// Set the label to the month
+	const dt = new Date(ts);
+	document.getElementById('time-window-centrepoint').textContent = dt.toLocaleString();
   }
 
-  const windowSize = 1*60*60*1000; // 2 hours total (ts +/- 1hr)
-
-  map.setFilter('track-and-trace',
-				['all',
-				 ['>', 'time', ts-windowSize/2],
-				 ['<', 'time', ts+windowSize/2]]);
-
-  // Set the label to the month
-  const dt = new Date(ts);
-  document.getElementById('time-window-centrepoint').textContent = dt.toLocaleString();
 }
 
 map.on('load', function() {
