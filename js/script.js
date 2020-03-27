@@ -40,7 +40,6 @@ const configureSlider = () => {
 
 const filterDotsInTimeWindow = ts => {
   // if the slider is on the min value, remove all filters (i.e. show all the data points)
-  // TODO doesn't work currently - fix it Ben!
   if (ts == timeColorMapping[0][0]) {
     map.setFilter("track-and-trace", null);
   } else {
