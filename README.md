@@ -25,7 +25,8 @@ To get hacking on it:
 It's served by GitHub Pages, so any commits that you push to GitHub will be
 built & served at <https://act-covid-19-tracker.github.io/geojson-over-time/>.
 This means that you need to commit the generated `static/bundle.js` as well (we
-might make this nicer in the future, but it'll do for now).
+might make this nicer in the future, e.g. set up a GitHub action to run the
+`browserify` step automatically, but this'll do for now).
 
 Remember, it's just plain html & js, though---it's not a Jekyll site.
 
