@@ -62,7 +62,7 @@ const filterDotsInTimeWindow = ts => {
 
 const formatDate = ts => {
   const timeMoment = moment(new Date(ts));
-  return timeMoment.format("ddd MMM Do YYYY, h:mm a");
+  return timeMoment.format("h:mma ddd MMM D");
 }
 
 map.on("load", function() {
