@@ -15,12 +15,13 @@
 
 #legend{
 	width:100%;
+	color: white;
 }
 
-#legend tr {
-	height: 1em;
-
+#legend td {
+	text-align: center;
 }
+
 #slider {
 	width: 100%;
 }

@@ -22,20 +22,15 @@ const timeColorMapping = [
 const populateLegend = () => {
   const table = document.getElementById("legend");
   const swatches = document.createElement("tr");
-  const labels = document.createElement("tr");
 
   for (i = 0; i < timeColorMapping.length; i++) {
     const swatch = document.createElement("td");
     swatch.style.background = timeColorMapping[i][1];
+    swatch.innerHTML = formatDate(timeColorMapping[i][0]);
     swatches.appendChild(swatch);
-
-    const label = document.createElement("td");
-    label.innerHTML = formatDate(timeColorMapping[i][0]);
-    labels.appendChild(label);
   }
 
   table.appendChild(swatches);
-  table.appendChild(labels);
 };
 
 const configureSlider = () => {
