@@ -1,6 +1,6 @@
 <html>
   <meta charset="utf-8" />
-  <title>GeoJSON over time demo for visualisation</title>
+  <title>Location tracking viewer demo</title>
   <meta
 	name="viewport"
 	content="initial-scale=1,maximum-scale=1,user-scalable=no"
@@ -9,6 +9,7 @@
 	href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css"
 	rel="stylesheet"
   />
+  <link href="css/mvp.css" rel="stylesheet" />
   <link href="css/demo.css" rel="stylesheet" />
 
   <head> </head>
@@ -19,15 +20,15 @@
 
 	<!-- top-left information console -->
 	<div id="console">
-	  <h1>Location over time in Canberra</h1>
+	  <h1>Location tracking viewer</h1>
 	  <p>From data supplied by the COVID-19 ANU & ACT Health task force</p>
 
 	  <!-- legend -->
-	  <h1>Colour legend</h1>
+	  <h2>Colour legend</h2>
 	  <div id='legend'></div>
 
 	  <!-- slider -->
-	  <h1>Time slider</h1>
+	  <h2>Time slider</h2>
 	  <input id="slider" type="range" min="0" max="100" step="1" value="0" />
 	  <p><span id="time-window-centrepoint">all time</span></p>
 	  <p style="color:grey;">(+/- 1hr)</p>
