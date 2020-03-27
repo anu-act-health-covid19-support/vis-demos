@@ -3,16 +3,31 @@
 A demo of GeoJSON over time visualisation to help requirements elicitation. Uses
 the [Mapbox API](https://docs.mapbox.com/api/).
 
-## Use
+## Development
+
+It's a SPA, but it doesn't use any particular "framework" (e.g.
+react/vue/angular). You can still install modules from
+[npm](https://www.npmjs.com/package/live-server), then it uses
+[browserify](http://browserify.org) to package everything into a single
+`static/bundle.js` file which will be loaded by a `<script>` tag in
+`index.html`.
+
+To get hacking on it:
+
+- `npm install` all the things
+- `npm run build` will build `bundle.js` and exit _or_ `npm run watch` will
+  build it, then watch and re-build if you change any of the source files
+- then, you just need to set up a local dev server, e.g.
+  [this](https://www.npmjs.com/package/live-server)
+
+## Deployment
 
 It's served by GitHub Pages, so any commits that you push to GitHub will be
 built & served at <https://act-covid-19-tracker.github.io/geojson-over-time/>.
-It's just plain html & js, though---it's not a Jekyll site.
+This means that you need to commit the generated `static/bundle.js` as well (we
+might make this nicer in the future, but it'll do for now).
 
-If you want to test locally (always a good idea---don't push unless you're sure
-it won't break the build) then you can use a "live server" (e.g. [this
-one](https://www.npmjs.com/package/live-server)) in this directory to run it on
-your local machine.
+Remember, it's just plain html & js, though---it's not a Jekyll site.
 
 ## Licence
 

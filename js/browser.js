@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 mapboxgl.accessToken =
   "pk.eyJ1Ijoia2F0aHlyZWlkIiwiYSI6ImNrODgyMTN1ZjAwamQzbW1za3Qwa2VhM20ifQ.t2zzot1Qhgqf-EzMAhIFgQ";
 
