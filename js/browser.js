@@ -59,7 +59,7 @@ const filterDotsInTimeWindow = ts => {
     // Set the label to the month
     document.getElementById(
       "time-window-centrepoint"
-    ).textContent = formatDate(ts);
+    ).textContent = formatDate(ts) + " (+/- 1hr)";
   }
 };
 
