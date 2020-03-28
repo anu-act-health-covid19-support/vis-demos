@@ -24,10 +24,10 @@ const populateLegend = () => {
   const swatches = document.createElement("tr");
 
   for (i = 0; i < timeColorMapping.length; i++) {
-    const swatch = document.createElement("td");
-    swatch.style.background = timeColorMapping[i][1];
-    swatch.innerHTML = moment(timeColorMapping[i][0]).format("MMMM D");
-    swatches.appendChild(swatch);
+	const swatch = document.createElement("td");
+	swatch.style.background = timeColorMapping[i][1];
+	swatch.innerHTML = moment(timeColorMapping[i][0]).format("MMMM D");
+	swatches.appendChild(swatch);
   }
 
   table.appendChild(swatches);
@@ -38,58 +38,65 @@ const configureSlider = () => {
   slider.min = timeColorMapping[0][0];
   slider.value = timeColorMapping[0][0];
   slider.max = timeColorMapping[timeColorMapping.length - 1][0];
+
+  // TODO should debounce this...
+  slider.addEventListener("input", function(e) {
+	const ts = parseInt(e.target.value, 10);
+	filterDotsInTimeWindow(ts);
+  });
 };
 
 const filterDotsInTimeWindow = ts => {
   // if the slider is on the min value, remove all filters (i.e. show all the data points)
   if (ts == timeColorMapping[0][0]) {
-    map.setFilter("track-and-trace", null);
-    document.getElementById(
-      "time-window-centrepoint"
-    ).textContent = "all time";
+	map.setFilter("track-and-trace", null);
+	document.getElementById(
+	  "time-window-centrepoint"
+	).textContent = "all time";
   } else {
-    const windowSize = 1 * 60 * 60 * 1000; // 2 hours total (ts +/- 1hr)
+	const windowSize = 1 * 60 * 60 * 1000; // 2 hours total (ts +/- 1hr)
 
-    map.setFilter("track-and-trace", [
-      "all",
-      [">", "time", ts - windowSize / 2],
-      ["<", "time", ts + windowSize / 2]
-    ]);
+	map.setFilter("track-and-trace", [
+	  "all",
+	  [">", "time", ts - windowSize / 2],
+	  ["<", "time", ts + windowSize / 2]
+	]);
 
-    // Set the label to the month
-    document.getElementById(
-      "time-window-centrepoint"
-    ).textContent = moment(ts).format("h:mma ddd MMM D") + " (+/- 1hr)";
+	// Set the label to the month
+	document.getElementById(
+	  "time-window-centrepoint"
+	).textContent = moment(ts).format("h:mma ddd MMM D") + " (+/- 1hr)";
   }
 };
 
 map.on("load", function() {
-  map.addLayer({
-    id: "track-and-trace",
-    type: "circle",
-    source: {
-      type: "geojson",
-      data: "data/raw-data.geojson"
-    },
-    paint: {
-      "circle-radius": 7,
-      "circle-stroke-color": "white",
-      "circle-stroke-width": 1,
-      "circle-color": [
-        "interpolate",
-        ["linear"],
-        ["get", "time"],
-        ...timeColorMapping.flat() // don't get too clever, Ben...
-      ],
-      "circle-opacity": 0.8
-    }
-  });
-
-  populateLegend();
-  configureSlider();
-
-  document.getElementById("slider").addEventListener("input", function(e) {
-    const ts = parseInt(e.target.value, 10);
-    filterDotsInTimeWindow(ts);
-  });
+  // first, fetch the data
+  // do this separately so we can set up the legend as well
+  fetch("data/raw-data.geojson")
+	.then(response => response.json())
+	.then(jsonResponse => {
+	  // set up the map stuff
+	  map.addLayer({
+		id: "track-and-trace",
+		type: "circle",
+		source: {
+		  type: "geojson",
+		  data: jsonResponse
+		},
+		paint: {
+		  "circle-radius": 7,
+		  "circle-stroke-color": "white",
+		  "circle-stroke-width": 1,
+		  "circle-color": [
+			"interpolate",
+			["linear"],
+			["get", "time"],
+			...timeColorMapping.flat() // don't get too clever, Ben...
+		  ],
+		  "circle-opacity": 0.8
+		}
+	  });
+	  populateLegend();
+	  configureSlider();
+	});
 });
