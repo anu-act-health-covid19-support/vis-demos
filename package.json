@@ -1,28 +1,28 @@
 {
- "name": "geojson-over-time",
- "version": "0.1.0",
- "description": "SPA for visualising geojson data (e.g. from a tracker app)",
- "main": "js/browser.js",
- "dependencies": {
-  "browserify": "^16.5.0",
-  "mapbox-gl": "^1.9.0",
-  "moment": "^2.24.0",
-  "watchify": "^3.11.1"
- },
- "devDependencies": {},
- "scripts": {
-  "build": "browserify js/browser.js -o static/bundle.js",
-  "watch": "watchify js/browser.js -o static/bundle.js --debug --verbose",
-  "test": "echo \"Error: no test specified\" && exit 1"
- },
- "repository": {
-  "type": "git",
-  "url": "git+https://github.com/ACT-COVID-19-TRACKER/geojson-over-time.git"
- },
- "author": "Ben Swift, Kathy Reid",
- "license": "Apache-2.0",
- "bugs": {
-  "url": "https://github.com/ACT-COVID-19-TRACKER/geojson-over-time/issues"
- },
- "homepage": "https://github.com/ACT-COVID-19-TRACKER/geojson-over-time#readme"
+  "name": "geojson-over-time",
+  "version": "0.1.0",
+  "description": "SPA for visualising geojson data (e.g. from a tracker app)",
+  "main": "js/browser.js",
+  "dependencies": {
+    "browserify": "^16.5.0",
+    "mapbox-gl": "^1.9.0",
+    "moment": "^2.24.0",
+    "watchify": "^3.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "browserify js/browser.js -o static/bundle.js",
+    "watch": "watchify js/browser.js -o static/bundle.js --debug --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ACT-COVID-19-TRACKER/geojson-over-time.git"
+  },
+  "author": "Ben Swift, Kathy Reid",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ACT-COVID-19-TRACKER/geojson-over-time/issues"
+  },
+  "homepage": "https://github.com/ACT-COVID-19-TRACKER/geojson-over-time#readme"
 }
