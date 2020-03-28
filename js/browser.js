@@ -69,6 +69,11 @@ const filterDotsInTimeWindow = ts => {
   }
 };
 
+const getTimeBounds = (geoJsonData) => {
+  times = geoJsonData.features.map(f => f.properties.time);
+  return [Math.min(...times), Math.max(...times)];
+}
+
 map.on("load", function() {
   // first, fetch the data
   // do this separately so we can set up the legend as well
