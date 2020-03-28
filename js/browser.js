@@ -79,14 +79,15 @@ map.on("load", function() {
   // do this separately so we can set up the legend as well
   fetch("data/raw-data.geojson")
 	.then(response => response.json())
-	.then(jsonResponse => {
+	.then(geoData => {
+
 	  // set up the map stuff
 	  map.addLayer({
 		id: "track-and-trace",
 		type: "circle",
 		source: {
 		  type: "geojson",
-		  data: jsonResponse
+		  data: geoData
 		},
 		paint: {
 		  "circle-radius": 7,
