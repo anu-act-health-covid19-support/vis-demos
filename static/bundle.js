@@ -32,7 +32,7 @@ const createWidgets = (minTs, maxTs, numStops) => {
   for (let stop of calculateColorStops(minTs, maxTs, numStops)) {
 	const swatch = document.createElement("td");
 	swatch.style.background = stop[1];
-	swatch.innerHTML = moment(stop[0]).format("MMMM D");
+	swatch.innerHTML = moment(stop[0]).format("MMM D");
 	swatches.appendChild(swatch);
   }
 
