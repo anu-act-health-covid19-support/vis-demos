@@ -79,7 +79,7 @@ const getTimeBounds = (geoJsonData) => {
 map.on("load", function() {
   // first, fetch the data
   // do this separately so we can set up the legend as well
-  fetch("data/raw-data.geojson")
+  fetch("../data/raw-data.geojson")
 	.then(response => response.json())
 	.then(geoData => {
 

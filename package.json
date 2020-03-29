@@ -12,8 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "browserify js/browser.js -o static/bundle.js",
-    "watch": "watchify js/browser.js -o static/bundle.js --debug --verbose",
+    "build": "browserify location-tracker/browser.js -o static/location-tracker-bundle.js",
     "prettier": "prettier --write *",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
