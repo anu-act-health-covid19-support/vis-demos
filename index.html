@@ -21,15 +21,14 @@
     <!-- top-left information console -->
     <div id="console">
       <h1>Location viewer</h1>
-      <p>Tracking data supplied by the COVID-19 ANU & ACT Health task force</p>
+      <p>data supplied by the COVID-19 ANU & ACT Health task force</p>
+
+      <!-- slider -->
+      <input id="slider" type="range" min="0" max="100" step="1" value="0" />
+      <p>time window: <span id="time-window-centrepoint">all time</span></p>
 
       <!-- legend -->
       <table id="legend"></table>
-
-      <!-- slider -->
-      <h2>Time slider</h2>
-      <input id="slider" type="range" min="0" max="100" step="1" value="0" />
-      <p><span id="time-window-centrepoint">all time</span></p>
     </div>
 
     <script src="static/bundle.js"></script>
