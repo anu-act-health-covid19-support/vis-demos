@@ -1,5 +1,5 @@
 {
-  "name": "geojson-over-time",
+  "name": "vis-demos",
   "version": "0.1.0",
   "description": "SPA for visualising geojson data (e.g. from a tracker app)",
   "main": "js/browser.js",
@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ACT-COVID-19-TRACKER/geojson-over-time.git"
+    "url": "git+https://github.com/ACT-COVID-19-TRACKER/vis-demos.git"
   },
   "author": "Ben Swift, Kathy Reid",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ACT-COVID-19-TRACKER/geojson-over-time/issues"
+    "url": "https://github.com/ACT-COVID-19-TRACKER/vis-demos/issues"
   },
-  "homepage": "https://github.com/ACT-COVID-19-TRACKER/geojson-over-time#readme"
+  "homepage": "https://github.com/ACT-COVID-19-TRACKER/vis-demos#readme"
 }

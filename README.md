@@ -1,4 +1,4 @@
-# geojson-over-time
+# vis-demos
 
 A demo of GeoJSON over time visualisation to help requirements elicitation. Uses
 the [Mapbox API](https://docs.mapbox.com/api/).
@@ -23,7 +23,7 @@ To get hacking on it:
 ## Deployment
 
 It's served by GitHub Pages, so any commits that you push to GitHub will be
-built & served at <https://act-covid-19-tracker.github.io/geojson-over-time/>.
+built & served at <https://act-covid-19-tracker.github.io/vis-demos/>.
 This means that you need to commit the generated `static/bundle.js` as well (we
 might make this nicer in the future, e.g. set up a GitHub action to run the
 `browserify` step automatically, but this'll do for now).

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "covid19-geojson-over-time"
+name = "covid19-vis-demos"
 version = "0.1.0"
 description = ""
 authors = ["Ben Swift <ben.swift@anu.edu.au>"]
