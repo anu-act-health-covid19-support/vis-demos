@@ -93,7 +93,6 @@ map.on("load", function() {
 	  const timeRange = getTimeBounds(geoData);
 	  const numColorStops = 4;
 	  const colorStops = calculateColorStops(timeRange[0], timeRange[1], numColorStops);
-	  console.log(colorStops);
 
 	  createWidgets(timeRange[0], timeRange[1], numColorStops);
 
