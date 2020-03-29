@@ -14,13 +14,6 @@ const map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl());
 
-// hardcoded values based on Kathy's test data for now - will make this
-// data-driven later
-const timestampArray = [
-  [1584685015006, "#eb4d4b"],
-  [1585094785740, "#4834d4"]
-];
-
 // this function returns an array of 2-element [ts, "#color"] arrays
 const calculateColorStops = (minTs, maxTs, numStops) => {
   const colors = palette('cb-BrBG', numStops);
@@ -52,13 +45,12 @@ const createWidgets = (minTs, maxTs, numStops) => {
   // TODO should debounce this...
   slider.addEventListener("input", function(e) {
 	const ts = parseInt(e.target.value, 10);
-	filterDotsInTimeWindow(ts);
+	filterDotsInTimeWindow(ts, ts == minTs);
   });
 };
 
-const filterDotsInTimeWindow = ts => {
-  // if the slider is on the min value, remove all filters (i.e. show all the data points)
-  if (ts == timestampArray[0][0]) {
+const filterDotsInTimeWindow = (ts, reset) => {
+  if (reset) {
 	map.setFilter("track-and-trace", null);
 	document.getElementById(
 	  "time-window-centrepoint"
