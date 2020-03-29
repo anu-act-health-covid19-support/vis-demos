@@ -1,5 +1,6 @@
 const moment = require('moment');
 const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+const palette = require('google-palette');
 
 mapboxgl.accessToken =
   "pk.eyJ1Ijoia2F0aHlyZWlkIiwiYSI6ImNrODgyMTN1ZjAwamQzbW1za3Qwa2VhM20ifQ.t2zzot1Qhgqf-EzMAhIFgQ";
@@ -13,31 +14,38 @@ const map = new mapboxgl.Map({
 
 // hardcoded values based on Kathy's test data for now - will make this
 // data-driven later
-const timeColorMapping = [
+const timestampArray = [
   [1584685015006, "#eb4d4b"],
   [1585094785740, "#4834d4"]
 ];
 
+// this function returns an array of 2-element [ts, "#color"] arrays
+const calculateColorStops = (minTs, maxTs, numStops) => {
+  const colors = palette('tol-sq', numStops);
+  return colors.map((c, i) => [minTs+(maxTs-minTs)*(i/colors.length), `#${c}`]);
+}
+
 // c'mon mapbox, surely there's a better way to do this...
-const populateLegend = () => {
+const createWidgets = (minTs, maxTs, numStops) => {
+  // colour legend
   const table = document.getElementById("legend");
+  table.innerHTML = ""; // remove existing legend, if present
+
   const swatches = document.createElement("tr");
 
-  for (i = 0; i < timeColorMapping.length; i++) {
+  for (let stop of calculateColorStops(minTs, maxTs, numStops)) {
 	const swatch = document.createElement("td");
-	swatch.style.background = timeColorMapping[i][1];
-	swatch.innerHTML = moment(timeColorMapping[i][0]).format("MMMM D");
+	swatch.style.background = stop[1];
+	swatch.innerHTML = moment(stop[0]).format("MMMM D");
 	swatches.appendChild(swatch);
   }
 
   table.appendChild(swatches);
-};
 
-const configureSlider = () => {
   const slider = document.getElementById("slider");
-  slider.min = timeColorMapping[0][0];
-  slider.value = timeColorMapping[0][0];
-  slider.max = timeColorMapping[timeColorMapping.length - 1][0];
+  slider.min = minTs;
+  slider.max = maxTs;
+  slider.value = minTs; // start at min value
 
   // TODO should debounce this...
   slider.addEventListener("input", function(e) {
@@ -48,7 +56,7 @@ const configureSlider = () => {
 
 const filterDotsInTimeWindow = ts => {
   // if the slider is on the min value, remove all filters (i.e. show all the data points)
-  if (ts == timeColorMapping[0][0]) {
+  if (ts == timestampArray[0][0]) {
 	map.setFilter("track-and-trace", null);
 	document.getElementById(
 	  "time-window-centrepoint"
@@ -81,7 +89,14 @@ map.on("load", function() {
 	.then(response => response.json())
 	.then(geoData => {
 
-	  // set up the map stuff
+	  const timeRange = getTimeBounds(geoData);
+	  const numColorStops = 4;
+	  const colorStops = calculateColorStops(timeRange[0], timeRange[1], numColorStops);
+	  console.log(colorStops);
+
+	  createWidgets(timeRange[0], timeRange[1], numColorStops);
+
+	  // set up the map
 	  map.addLayer({
 		id: "track-and-trace",
 		type: "circle",
@@ -97,12 +112,10 @@ map.on("load", function() {
 			"interpolate",
 			["linear"],
 			["get", "time"],
-			...timeColorMapping.flat() // don't get too clever, Ben...
+			...colorStops.flat() // don't get too clever, Ben...
 		  ],
 		  "circle-opacity": 0.8
 		}
 	  });
-	  populateLegend();
-	  configureSlider();
 	});
 });
