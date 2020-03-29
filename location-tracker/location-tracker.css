@@ -1,27 +1,27 @@
 #console {
-	position: absolute;
-	max-width: 500px;
-	margin: 0;
-	padding: 10px;
-	background-color: white;
+  position: absolute;
+  max-width: 500px;
+  margin: 0;
+  padding: 10px;
+  background-color: white;
 }
 
 #map {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
 }
 
-#legend{
-	width:100%;
-	color: white;
+#legend {
+  width: 100%;
+  color: white;
 }
 
 #legend td {
-	text-align: center;
+  text-align: center;
 }
 
 #slider {
-	width: 100%;
+  width: 100%;
 }

@@ -16,7 +16,7 @@
   "devDependencies": {},
   "scripts": {
     "build": "browserify location-tracker/browser.js -o static/location-tracker-bundle.js && browserify hospital-demand/browser.js -o static/hospital-demand-bundle.js",
-    "prettier": "prettier --write .",
+    "prettier": "prettier --write '**/*.{html,css,js,yml}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

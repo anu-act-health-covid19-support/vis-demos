@@ -1,58 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-	<link rel="stylesheet" href="../css/mvp.css">
-	<link href="spinner.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/mvp.css" />
+    <link href="spinner.css" rel="stylesheet" />
 
-	<meta charset="utf-8">
-	<meta name="description" content="hospital demand visualisation">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="description" content="hospital demand visualisation" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>ANU/ACT Health COVID-19 FAQ: Should I stay at home?</title>
+    <title>ANU/ACT Health COVID-19 FAQ: Should I stay at home?</title>
   </head>
 
   <body>
-	<header>
-	  <h1>Should you stay at home?</h1>
-	  <small>A public health explainer from the ANU/ACT Health COVID-19 taskforce</small>
-	</header>
-	<main>
-	  <section>
-		<p id="status-text">analysing current data, please wait...</p>
-	  </section>
-	  <section id="answer-section">
-		<p id="answer"><strong>yes.</strong></p>
-		<p>
-		  <small>
-			seriously, though, check the <a href="https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert">Department of Health COVID-19 website</a>
-			for the most up-to-date information
-		  </small>
-		</p>
-	  </section>
-	  <section>
-	  </section>
+    <header>
+      <h1>Should you stay at home?</h1>
+      <small
+        >A public health explainer from the ANU/ACT Health COVID-19
+        taskforce</small
+      >
+    </header>
+    <main>
+      <section>
+        <p id="status-text">analysing current data, please wait...</p>
+      </section>
+      <section id="answer-section">
+        <p id="answer"><strong>yes.</strong></p>
+        <p>
+          <small>
+            seriously, though, check the
+            <a
+              href="https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert"
+              >Department of Health COVID-19 website</a
+            >
+            for the most up-to-date information
+          </small>
+        </p>
+      </section>
+      <section></section>
 
-	  <script>
-	   // based on Charles' code
-	   const theDelay = 5;
-	   const revealAnswer = () => {
-		 document.getElementById("status-text").textContent = "";
-		 document.getElementById("answer-section").style.visibility = "visible";
-	   }
-	   const timer = setTimeout(revealAnswer, theDelay*1000);
-	  </script>
-
-	</main>
-	<footer>
-	  <hr>
-	  <p>
-		<a href="https://github.com/organizations/ACT-COVID-19-TRACKER/settings/profile"><strong>ACT COVID-19 Tracker Project GitHub Organisation</strong></a>
-	  </p>
-	  <p>
-		For technical enquires, contact <a href="mailto:ben.swift@anu.edu.au">Ben Swift</a>
-	  </p>
-	</footer>
+      <script>
+        // based on Charles' code
+        const theDelay = 5;
+        const revealAnswer = () => {
+          document.getElementById("status-text").textContent = "";
+          document.getElementById("answer-section").style.visibility =
+            "visible";
+        };
+        const timer = setTimeout(revealAnswer, theDelay * 1000);
+      </script>
+    </main>
+    <footer>
+      <hr />
+      <p>
+        <a
+          href="https://github.com/organizations/ACT-COVID-19-TRACKER/settings/profile"
+          ><strong>ACT COVID-19 Tracker Project GitHub Organisation</strong></a
+        >
+      </p>
+      <p>
+        For technical enquires, contact
+        <a href="mailto:ben.swift@anu.edu.au">Ben Swift</a>
+      </p>
+    </footer>
   </body>
-
 </html>
