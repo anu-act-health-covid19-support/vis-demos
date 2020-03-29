@@ -21,22 +21,22 @@
 	  <section>
 		<p id="status-text">analysing current data, please wait...</p>
       </section>
-	  <section>
-		<p id="answer" style="visibility: hidden; padding: 4vw 0; font-size:15vw;"><strong>yes.</strong></p>
-	  </section>
-	  <section>
-		<p>
+	  <section id="answer-section">
+		<p id="answer"><strong>yes.</strong></p>
+		<small>
 		  seriously, though, check the <a href="https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert">Department of Health COVID-19 website</a>
 		  for the most up-to-date information
-		</p>
+		</small>
+	  </section>
+	  <section>
 	  </section>
 
 	  <script>
 	   // based on Charles' code
 	   const theDelay = 5;
 	   const revealAnswer = () => {
-		 document.getElementById("status-text").textContent = "analysis complete:";
-		 document.getElementById("answer").style.visibility = "visible";
+		 document.getElementById("status-text").textContent = "";
+		 document.getElementById("answer-section").style.visibility = "visible";
 	   }
 	   const timer = setTimeout(revealAnswer, theDelay*1000);
 	  </script>
