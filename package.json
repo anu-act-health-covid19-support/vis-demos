@@ -14,6 +14,7 @@
   "scripts": {
     "build": "browserify js/browser.js -o static/bundle.js",
     "watch": "watchify js/browser.js -o static/bundle.js --debug --verbose",
+    "prettier": "prettier --write *",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
