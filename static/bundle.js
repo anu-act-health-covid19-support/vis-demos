@@ -13,7 +13,7 @@ const map = new mapboxgl.Map({
   zoom: 15
 });
 
-map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new mapboxgl.NavigationControl({showCompass: false}), "bottom-right");
 
 // this function returns an array of 2-element [ts, "#color"] arrays
 const calculateColorStops = (minTs, maxTs, numStops) => {
