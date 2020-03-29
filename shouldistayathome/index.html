@@ -14,34 +14,23 @@
 
   <body>
 	<header>
-	  <nav>
-		<a href="/"><img alt="ANU Logo" src="../assets/anu-logo.png" height="100"></a>
-	  </nav>
 	  <h1>Should you stay at home?</h1>
 	  <small>A public health explainer from the ANU/ACT Health COVID-19 taskforce</small>
 	</header>
 	<main>
-	  <!-- the spinner widget -->
-      <hr />
-	  <section id="spinner-section">
-        <blockquote>
-		  <div class="spinner">
-			<div class="double-bounce1"></div>
-			<div class="double-bounce2"></div>
-		  </div>
-		  analysing current covid19 data... please wait
-        </blockquote>
-      </section>
-
 	  <section>
-		<p id="answer" style="display: none;">yes.</p>
+		<p id="status-text">analysing current data, please wait...</p>
+      </section>
+	  <section>
+		<p id="answer" style="visibility: hidden; padding: 4vw 0; font-size:15vw;"><strong>yes.</strong></p>
 	  </section>
+
 	  <script>
 	   // based on Charles' code
 	   const theDelay = 5;
 	   const revealAnswer = () => {
-		 document.getElementById("spinner-section").style.display = "none";
-		 document.getElementById("answer").style.display = "block";
+		 document.getElementById("status-text").textContent = "analysis complete:";
+		 document.getElementById("answer").style.visibility = "visible";
 	   }
 	   const timer = setTimeout(revealAnswer, theDelay*1000);
 	  </script>
