@@ -21,7 +21,7 @@ const timestampArray = [
 
 // this function returns an array of 2-element [ts, "#color"] arrays
 const calculateColorStops = (minTs, maxTs, numStops) => {
-  const colors = palette('tol-sq', numStops);
+  const colors = palette('cb-BrBG', numStops);
   return colors.map((c, i) => [minTs+(maxTs-minTs)*(i/colors.length), `#${c}`]);
 }
 
