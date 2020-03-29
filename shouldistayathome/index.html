@@ -21,9 +21,8 @@
     </header>
 
     <main>
-      <section>
-        <p id="status-text">analysing current data, please wait...</p>
-      </section>
+	  <div id="progress-bar"></div>
+
       <section id="answer-section">
         <p id="answer"><strong>yes*</strong></p>
         <p>
@@ -38,18 +37,8 @@
           </small>
         </p>
       </section>
-      <section></section>
 
-      <script>
-        // based on Charles' code
-        const theDelay = 5;
-        const revealAnswer = () => {
-          document.getElementById("status-text").textContent = "";
-          document.getElementById("answer-section").style.visibility =
-            "visible";
-        };
-        const timer = setTimeout(revealAnswer, theDelay * 1000);
-      </script>
+      <script src="../static/shouldistayathome-bundle.js"></script>
     </main>
 
     <footer>
