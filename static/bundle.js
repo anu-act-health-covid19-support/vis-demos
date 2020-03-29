@@ -13,6 +13,8 @@ const map = new mapboxgl.Map({
   zoom: 15
 });
 
+map.addControl(new mapboxgl.NavigationControl());
+
 // hardcoded values based on Kathy's test data for now - will make this
 // data-driven later
 const timestampArray = [
