@@ -103,4 +103,6 @@ dist
 # TernJS port file
 .tern-port
 /data/processed-data.geojson
-/static/*.js
+
+# once the GH pages deploy action actually works we can uncomment this next line
+# /static/*.js
