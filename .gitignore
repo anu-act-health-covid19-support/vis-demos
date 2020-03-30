@@ -105,4 +105,4 @@ dist
 /data/processed-data.geojson
 
 # once the GH pages deploy action actually works we can uncomment this next line
-/static/*.js
+# /static/*.js
