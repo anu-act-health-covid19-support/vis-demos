@@ -8,7 +8,7 @@ const bar = new ProgressBar.Line("#progress-bar", {
   strokeWidth: 4,
   easing: 'easeInOut',
   duration: analysisMSec,
-  color: '#FFEA82',
+  color: '#118bee',
   trailColor: '#eee',
   trailWidth: 1,
   svgStyle: {width: '100%', height: '100%'},
@@ -25,7 +25,7 @@ const bar = new ProgressBar.Line("#progress-bar", {
   from: {color: '#22EA82'},
   to: {color: '#ED6A5A'},
   step: (state, bar) => {
-    bar.setText(`data analysis ${Math.round(bar.value() * 100)}% complete`);
+    bar.setText(`processing: data analysis ${Math.round(bar.value() * 100)}% complete`);
   }
 });
 
