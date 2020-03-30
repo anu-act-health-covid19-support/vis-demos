@@ -1,9 +1,11 @@
-const vegaEmbed = require("vega-embed");
+// NOTE: this is currently "parked", might come back to it later
+
+const vegaEmbed = require('vega-embed');
 
 var vegaLiteSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v4.json",
   data: {
-    url: "../data/cars.json"
+	url: "../data/cars.json"
   },
   encoding: {
     x: {
@@ -14,7 +16,7 @@ var vegaLiteSpec = {
   },
   layer: [
     {
-      mark: { type: "errorband", extent: "ci" },
+      mark: {type: "errorband", extent: "ci"},
       encoding: {
         y: {
           field: "Miles_per_Gallon",
@@ -36,4 +38,4 @@ var vegaLiteSpec = {
   ]
 };
 
-vegaEmbed("#vis", vegaLiteSpec);
+vegaEmbed('#vis', vegaLiteSpec);
