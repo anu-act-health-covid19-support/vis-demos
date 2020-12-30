@@ -10,7 +10,7 @@
     "moment": "^2.24.0",
     "p5": "^1.0.0",
     "progressbar.js": "^1.1.0",
-    "vega": "^5.10.0",
+    "vega": "^5.17.3",
     "vega-embed": "^6.5.2",
     "vega-lite": "^4.8.1",
     "watchify": "^3.11.1"
