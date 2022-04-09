@@ -7,7 +7,7 @@
     "browserify": "^16.5.0",
     "google-palette": "^1.1.0",
     "mapbox-gl": "^1.9.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "p5": "^1.0.0",
     "progressbar.js": "^1.1.0",
     "vega": "^5.10.0",
